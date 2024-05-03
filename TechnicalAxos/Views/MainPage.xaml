@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:view="clr-namespace:TechnicalAxos.Views"
+             x:Class="TechnicalAxos.MainPage">
+
+    <StackLayout>
+        <Label HorizontalOptions="CenterAndExpand" FontSize="17" FontAttributes="Bold" Text="{ Binding BundleId}" Padding="0,10,0,10"/>
+        <Image Source="{ Binding ImageUrl}" Margin="10,10,10,10" Aspect="AspectFit" HeightRequest="300"></Image>
+        <Button Text = "Select a picture"  Command="{Binding SelectPictureCommand}" ></Button>
+        <ListView SelectionMode="None" RowHeight="65" ItemsSource="{Binding Countries}" x:Name="countriesList">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <view:CountryCardView/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
